@@ -11,7 +11,7 @@ require_once __DIR__."/../../core/database.php";
 
 //$data = json_decode(file_get_contents("php://input"), true);
 
-$list=$pdo->query("SELECT * FROM marcas");
+$list=$pdo->query("SELECT * FROM Marcas");
 
 $list->execute();
 $show=$list->fetchAll();

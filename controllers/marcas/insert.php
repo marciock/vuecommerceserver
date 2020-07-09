@@ -8,14 +8,17 @@ require_once __DIR__."/../../core/database.php";
 
 //echo json_encode($data);
 
-$sql="INSERT INTO marcas (marca, descricao) VALUES ('{$data['marca']}','{$data['descricao']}')";
+$createdAt=date('Ymd');
+$updatedAt=date('Ymd');
+$sql="INSERT INTO Marcas VALUES (null,'{$data['marca']}','{$data['descricao']}',{$createdAt},{$updatedAt})";
 //echo json_encode($sql);
+//(marca, descricao,createdAt,updatedAt)
 
 if ($pdo->query($sql) === TRUE) {
-    //$resposta=["res"=>"deu derto"];
+    $resposta="deu derto";
     echo json_encode($resposta);
   } else {
-   // $resposta=["res"=>"deu errado"];
+    $resposta= "deu errado";
     echo json_encode($resposta);
   }
 

@@ -6,9 +6,11 @@ header('Access-Control-Allow-Headers: Origin, Content-Type, X-Auth-Token');
 $data = json_decode(file_get_contents("php://input"), true);
 require_once __DIR__."/../../core/database.php";
 
+
+
 //echo json_encode($data);
 
-$sql="DELETE FROM marcas WHERE id_marca='{$data['id']}')";
+$sql="DELETE FROM Marcas WHERE id='{$data}'";
 //echo json_encode($sql);
 
 if ($pdo->query($sql) === TRUE) {
@@ -16,7 +18,7 @@ if ($pdo->query($sql) === TRUE) {
     echo json_encode($resposta);
   } else {
     $resposta="deu errado";
-    echo json_encode($resposta);
+    echo json_encode($sql);
   }
 
 
