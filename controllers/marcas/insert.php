@@ -7,7 +7,7 @@ $data = json_decode(file_get_contents("php://input"), true);
 require_once __DIR__."/../../core/database.php";
 
 //echo json_encode($data);
-
+if (!empty($data)){
 $createdAt=date('Ymd');
 $updatedAt=date('Ymd');
 $sql="INSERT INTO Marcas VALUES (null,'{$data['marca']}','{$data['descricao']}',{$createdAt},{$updatedAt})";
@@ -15,6 +15,7 @@ $sql="INSERT INTO Marcas VALUES (null,'{$data['marca']}','{$data['descricao']}',
 //(marca, descricao,createdAt,updatedAt)
 
 if ($pdo->query($sql) === TRUE) {
+	$pdo->execute();
     $resposta="deu derto";
     echo json_encode($resposta);
   } else {
@@ -22,7 +23,7 @@ if ($pdo->query($sql) === TRUE) {
     echo json_encode($resposta);
   }
 
-
+}
 //$pdo->close();
 
 

@@ -18,11 +18,13 @@ if ($pdo->query($sql) === TRUE) {
     echo json_encode($resposta);
   } else {
     $resposta="deu errado";
-    echo json_encode($sql);
+    echo json_encode($data);
+
+    
   }
 
 
-//$pdo->close();
+//$pdo->close();*/
 
 
 
