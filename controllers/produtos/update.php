@@ -10,7 +10,7 @@ require_once __DIR__."/../../core/database.php";
 if (!empty($data)){
 $createdAt=date('Ymd');
 $updatedAt=date('Ymd');
-$sql="UPDATE  Marcas SET marca='{$data["marca"]}',descricao='{$data["descricao"]}',createdAt='{$createdAt}',updatedAt='{$updatedAt}' WHERE id = {$_GET["id"]}";
+$sql="UPDATE  Produtos SET produto='{$data["produto"]}',marca='{$data["idMarca"]}',preco='{$data["preco"]}',createdAt='{$createdAt}',updatedAt='{$updatedAt}' WHERE id = {$_GET["id"]}";
 //echo json_encode($sql);
 //(marca, descricao,createdAt,updatedAt)
 

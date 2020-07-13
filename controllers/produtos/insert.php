@@ -10,7 +10,7 @@ require_once __DIR__."/../../core/database.php";
 if (!empty($data)){
 $createdAt=date('Ymd');
 $updatedAt=date('Ymd');
-$sql="UPDATE  Marcas SET marca='{$data["marca"]}',descricao='{$data["descricao"]}',createdAt='{$createdAt}',updatedAt='{$updatedAt}' WHERE id = {$_GET["id"]}";
+$sql="INSERT INTO Produtos VALUES (null,'{$data['produto']}','{$data['marca']}','{$data['preco']}',{$createdAt},{$updatedAt})";
 //echo json_encode($sql);
 //(marca, descricao,createdAt,updatedAt)
 
@@ -20,7 +20,7 @@ if ($pdo->query($sql) === TRUE) {
     echo json_encode($resposta);
   } else {
     $resposta= "deu errado";
-    echo json_encode($sql);
+    echo json_encode($resposta);
   }
 
 }

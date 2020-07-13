@@ -11,9 +11,9 @@ require_once __DIR__."/../../core/database.php";
 
 //$data = json_decode(file_get_contents("php://input"), true);
 
-$list=$pdo->query("SELECT * FROM Marcas WHERE id={$_GET['id']}");
+$list=$pdo->query("SELECT p.id,p.produto,p.marca, p.preco, m.id as idMarca ,m.marca FROM Produtos as p INNER JOIN Marcas as m ON p.marca=m.id");
 
 $list->execute();
-$show=$list->fetch();
+$show=$list->fetchAll();
 
 echo json_encode($show);
